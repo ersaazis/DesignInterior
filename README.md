@@ -1,5 +1,5 @@
 **SPK DESIGN INTERIOR**  
-Dengan Algorima AHP F-AHP
+Dengan Algorima AHP F-AHP  
 **Instalasi**  
 1. Extract File
 2. Setting application\config\database.php (Sesuaikan Databasenya)
