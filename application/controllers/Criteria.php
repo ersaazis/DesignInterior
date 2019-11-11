@@ -2,13 +2,6 @@
 
 require APPPATH . '/libraries/BaseController.php';
 
-/**
- * Class : Criteria (CriteriaController)
- * Criteria Class to control all criteria related operations.
- * @author : Kishor Mali
- * @version : 1.1
- * @since : 15 November 2016
- */
 class Criteria extends BaseController
 {
     /**

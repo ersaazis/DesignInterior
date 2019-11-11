@@ -2,13 +2,6 @@
 
 require APPPATH . '/libraries/BaseController.php';
 
-/**
- * Class : Subcriteria (SubcriteriaController)
- * Subcriteria Class to control all subcriteria related operations.
- * @author : Kishor Mali
- * @version : 1.1
- * @since : 15 November 2016
- */
 class Subcriteria extends BaseController
 {
     /**

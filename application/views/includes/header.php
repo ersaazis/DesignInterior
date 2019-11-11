@@ -22,7 +22,7 @@
     		font-weight: normal;
     	}
     </style>
-    <script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
         var baseURL = "<?php echo base_url(); ?>";
     </script>
@@ -106,11 +106,18 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
               </a>
             </li>
-            <li>
-              <a href="<?php echo base_url('criteria'); ?>">
-                <i class="fa fa-tag"></i> <span>Criteria</span></i>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-tag"></i> <span>Criteria</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
               </a>
-            </li> 
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url('criteria'); ?>"><i class="fa fa-circle-o"></i> List</a></li>
+                <li><a href="<?php echo base_url('Weight_criteria'); ?>"><i class="fa fa-circle-o"></i> Weight</a></li>
+              </ul>
+            </li>
             <li>
               <a href="<?php echo base_url('subcriteria'); ?>">
                 <i class="fa fa-tags"></i> <span>Subcriteria</span></i>

@@ -91,5 +91,11 @@ $route['createPasswordUser'] = "login/createPasswordUser";
 $route['criteria'] = 'criteria/index';
 $route['criteria/(:num)'] = "criteria/index/$1";
 
+$route['subcriteria'] = 'subcriteria/index';
+$route['subcriteria/(:num)'] = "subcriteria/index/$1";
+
+$route['alternative'] = 'alternative/index';
+$route['alternative/(:num)'] = "alternative/index/$1";
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

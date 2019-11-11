@@ -20,6 +20,22 @@ class Criteria_model extends CI_Model
         return $query->num_rows();
     }
     
+    function data()
+    {
+        $this->db->select('*');
+        $this->db->from('criteria');
+        $query = $this->db->get();
+        $result = $query->result();        
+        return $result;
+    }
+    function dataArray()
+    {
+        $this->db->select('*');
+        $this->db->from('criteria');
+        $query = $this->db->get();
+        $result = $query->result_array();        
+        return $result;
+    }
     /**
      * This function is used to get the criteria listing count
      * @param string $searchText : This is optional search text

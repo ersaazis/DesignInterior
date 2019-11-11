@@ -31,7 +31,7 @@
                                     <div class="form-group">
                                         <label for="name">Criteria Name</label>
                                         <select class="form-control required" id="cname" name="cname">
-                                            <option value="0">Select Criteria</option>
+                                            <option value="">Select Criteria</option>
                                             <?php
                                             if(!empty($criteria))
                                             {

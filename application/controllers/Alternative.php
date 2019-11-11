@@ -2,13 +2,6 @@
 
 require APPPATH . '/libraries/BaseController.php';
 
-/**
- * Class : Alternative (AlternativeController)
- * Alternative Class to control all alternative related operations.
- * @author : Kishor Mali
- * @version : 1.1
- * @since : 15 November 2016
- */
 class Alternative extends BaseController
 {
     /**
