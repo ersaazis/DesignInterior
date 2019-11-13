@@ -2,8 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-tag"></i> Criteria Management
-        <small>Add / Edit Criteria</small>
+        <i class="fa fa-tag"></i> Calculation Results for AHP
       </h1>
     </section>
     
@@ -12,29 +11,32 @@
         <div class="row">
             <!-- left column -->
             <div class="col-md-8">
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <h3 class="box-title">Enter Criteria Details</h3>
-                    </div><!-- /.box-header -->
-                    <!-- form start -->
-                    <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addCriteria" action="<?php echo base_url('criteria/addNewCriteria') ?>" method="post" role="form">
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-md-6">                                
-                                    <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('name'); ?>" id="name" name="name" maxlength="128">
-                                    </div>
-                                </div>
-                            </div>
+
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Enter Criteria Details</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <pre><?php
+                            $n=0;
+                            foreach($weight as $wg):
+                                echo "$wg[weight] \t";
+                                if($n++%3 == 2)
+                                    echo "
+";
+                            endforeach;
+                        ?>
+                        </pre>
                         </div>
-                        <div class="box-footer">
-                            <input type="submit" class="btn btn-primary" value="Submit" />
-                            <input type="reset" class="btn btn-default" value="Reset" />
-                        </div>
-                    </form>
+                    </div>
                 </div>
+                <div class="box-footer">
+                </div>
+            </div>
+
             </div>
             <div class="col-md-4">
                 <?php
@@ -67,4 +69,24 @@
         </div>    
     </section>
 </div>
-<script src="<?php echo base_url(); ?>assets/js/addCriteria.js" type="text/javascript"></script>
+<script>
+    $('.switch').on('click',function(){
+        var data = $(this).data('id');
+
+        var tempId1 = $('#id_subcriteria1-'+data).val();
+        var tempNama1 = $('#name1-'+data).html();
+        var tempId2 = $('#id_subcriteria2-'+data).val();
+        var tempNama2 = $('#name2-'+data).html();
+
+        var tempLog1 = $('#log_name1-'+data).val();
+        var tempLog2 = $('#log_name2-'+data).val();
+
+        $('#id_subcriteria1-'+data).val(tempId2);
+        $('#name1-'+data).html(tempNama2);
+        $('#id_subcriteria2-'+data).val(tempId1);
+        $('#name2-'+data).html(tempNama1);
+
+        $('#log_name1-'+data).val(tempLog2);
+        $('#log_name2-'+data).val(tempLog1);
+    });
+</script>

@@ -133,7 +133,7 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="glyphicon glyphicon-certificate"></i> <span>Perhitungan</span>
+                <i class="glyphicon glyphicon-certificate"></i> <span>Calculation</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
