@@ -38,7 +38,7 @@ class Subcriteria extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : Subcriteria Listing';
             
-            $this->loadViews("subcriteria", $this->global, $data, NULL);
+            $this->loadViews("subcriteria/subcriteria", $this->global, $data, NULL);
         }
     }
 
@@ -56,7 +56,13 @@ class Subcriteria extends BaseController
             $this->load->model('subcriteria_model');            
             $data['criteria'] = $this->subcriteria_model->criteria();
             $this->global['pageTitle'] = 'CodeInsect : Add New Subcriteria';
-            $this->loadViews("subcriteriaAddNew", $this->global, $data, NULL);
+            $this->loadViews("subcriteria/subcriteriaAddNew", $this->global, $data, NULL);
+
+            if($this->subcriteria_model->subcriteriaListingCount() > 14){
+                $this->session->set_flashdata('error', 'Subcriteria reached limit');
+
+                redirect('subcriteria');
+            }
         }
     }
     
@@ -125,7 +131,7 @@ class Subcriteria extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : Edit Subcriteria';
             
-            $this->loadViews("subcriteriaEditOld", $this->global, $data, NULL);
+            $this->loadViews("subcriteria/subcriteriaEditOld", $this->global, $data, NULL);
         }
     }
     

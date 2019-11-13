@@ -22,7 +22,7 @@ class User extends BaseController
     {
         $this->global['pageTitle'] = 'CodeInsect : Dashboard';
         $this->global['jumUser']=$this->user_model->userListingCount();
-        $this->loadViews("dashboard", $this->global, NULL , NULL);
+        $this->loadViews("user/dashboard", $this->global, NULL , NULL);
     }
     
     /**
@@ -49,7 +49,7 @@ class User extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : User Listing';
             
-            $this->loadViews("users", $this->global, $data, NULL);
+            $this->loadViews("user/users", $this->global, $data, NULL);
         }
     }
 
@@ -69,7 +69,7 @@ class User extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : Add New User';
 
-            $this->loadViews("addNew", $this->global, $data, NULL);
+            $this->loadViews("user/addNew", $this->global, $data, NULL);
         }
     }
 
@@ -166,7 +166,7 @@ class User extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : Edit User';
             
-            $this->loadViews("editOld", $this->global, $data, NULL);
+            $this->loadViews("user/editOld", $this->global, $data, NULL);
         }
     }
     
@@ -302,7 +302,7 @@ class User extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : User Login History';
             
-            $this->loadViews("loginHistory", $this->global, $data, NULL);
+            $this->loadViews("user/loginHistory", $this->global, $data, NULL);
         }        
     }
 
@@ -315,7 +315,7 @@ class User extends BaseController
         $data["active"] = $active;
         
         $this->global['pageTitle'] = $active == "details" ? 'CodeInsect : My Profile' : 'CodeInsect : Change Password';
-        $this->loadViews("profile", $this->global, $data, NULL);
+        $this->loadViews("user/profile", $this->global, $data, NULL);
     }
 
     /**

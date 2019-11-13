@@ -99,6 +99,12 @@ class Criteria_model extends CI_Model
         $this->db->where('id', $criteriaId);
         $this->db->update('criteria', $criteriaInfo);
         
+        $this->db->where('id_criteria1', $criteriaId);
+        $this->db->update('weight_criteria', ['log_name1'=>$criteriaInfo['name']]);
+        
+        $this->db->where('id_criteria2', $criteriaId);
+        $this->db->update('weight_criteria', ['log_name2'=>$criteriaInfo['name']]);
+
         return TRUE;
     }
     

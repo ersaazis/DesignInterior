@@ -28,9 +28,8 @@
                             <div class="row" style="margin-bottom:15px">
                                 <div class="col-md-12">                                
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="name1-<?=$count?>"><?=$we['log_name1']?></span>
-                                        <input type="hidden" id="log_name1-<?=$count?>" value="<?=$we['log_name1']?>" name="input[<?=$count?>][log_name1]">
-                                        <input type="hidden" id="log_name2-<?=$count?>" value="<?=$we['log_name2']?>" name="input[<?=$count?>][log_name2]">
+                                        <span class="input-group-addon" id="name1-<?=$count?>"><?=$we['name1']?></span>
+                                        <input type="hidden" value=1 name="input[<?=$count?>][input]">
                                         <input type="hidden" id="id_criteria1-<?=$count?>" value="<?=$we['id_criteria1']?>" name="input[<?=$count?>][id_criteria1]">
                                         <input type="hidden" id="id_criteria2-<?=$count?>" value="<?=$we['id_criteria2']?>" name="input[<?=$count?>][id_criteria2]">
                                         <select name="input[<?=$count?>][weight]" class="form-control">
@@ -44,7 +43,7 @@
                                             <option value="8" <?=($we['weight'] == 8)?"selected":""?> >8 - between 7 and 9</option>
                                             <option value="9" <?=($we['weight'] == 9)?"selected":""?> >9 - One element is absolutely more important than the other elements</option>
                                         </select>
-                                        <span class="input-group-addon" id="name2-<?=$count?>"><?=$we['log_name2']?></span>
+                                        <span class="input-group-addon" id="name2-<?=$count?>"><?=$we['name2']?></span>
                                         <span class="input-group-btn">
                                             <button class="btn btn-info switch" data-id="<?=$count++?>" type="button"><small class="glyphicon glyphicon-retweet"></small></button>
                                         </span>
@@ -62,8 +61,7 @@
                                 <div class="col-md-12">                                
                                     <div class="input-group">
                                         <span class="input-group-addon" id="name1-<?=$count?>"><?=$criteria[$i]['name']?></span>
-                                        <input type="hidden" id="log_name1-<?=$count?>" value="<?=$criteria[$i]['name']?>" name="input[<?=$count?>][log_name1]">
-                                        <input type="hidden" id="log_name2-<?=$count?>" value="<?=$criteria[$j]['name']?>" name="input[<?=$count?>][log_name2]">
+                                        <input type="hidden" value=1 name="input[<?=$count?>][input]">
                                         <input type="hidden" id="id_criteria1-<?=$count?>" value="<?=$criteria[$i]['id']?>" name="input[<?=$count?>][id_criteria1]">
                                         <input type="hidden" id="id_criteria2-<?=$count?>" value="<?=$criteria[$j]['id']?>" name="input[<?=$count?>][id_criteria2]">
                                         <select name="input[<?=$count?>][weight]" class="form-control">
@@ -136,15 +134,9 @@
         var tempId2 = $('#id_criteria2-'+data).val();
         var tempNama2 = $('#name2-'+data).html();
 
-        var tempLog1 = $('#log_name1-'+data).val();
-        var tempLog2 = $('#log_name2-'+data).val();
-
         $('#id_criteria1-'+data).val(tempId2);
         $('#name1-'+data).html(tempNama2);
         $('#id_criteria2-'+data).val(tempId1);
         $('#name2-'+data).html(tempNama1);
-
-        $('#log_name1-'+data).val(tempLog2);
-        $('#log_name2-'+data).val(tempLog1);
     });
 </script>

@@ -20,9 +20,11 @@ class Weight_criteria_model extends CI_Model
     }
     function dataEdit()
     {
-        $this->db->select('*');
+        $this->db->select('weight_criteria.*,c1.name as name1, c2.name as name2');
+        $this->db->join('criteria as c1', 'c1.id = weight_criteria.id_criteria1');
+        $this->db->join('criteria as c2', 'c2.id = weight_criteria.id_criteria2');
         $this->db->from('weight_criteria');
-        $this->db->where('weight >',1);
+        $this->db->where('input',true);
         $query = $this->db->get();
         $result = $query->result_array();        
         return $result;

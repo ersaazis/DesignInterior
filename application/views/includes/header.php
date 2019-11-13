@@ -118,11 +118,32 @@
                 <li><a href="<?php echo base_url('Weight_criteria'); ?>"><i class="fa fa-circle-o"></i> Weight</a></li>
               </ul>
             </li>
-            <li>
-              <a href="<?php echo base_url('subcriteria'); ?>">
-                <i class="fa fa-tags"></i> <span>Subcriteria</span></i>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-tags"></i> <span>Subcriteria</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
               </a>
-            </li> 
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url('subcriteria'); ?>"><i class="fa fa-circle-o"></i> List</a></li>
+                <li><a href="<?php echo base_url('Weight_subcriteria'); ?>"><i class="fa fa-circle-o"></i> Weight</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="glyphicon glyphicon-certificate"></i> <span>Perhitungan</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url('perhitunganahp'); ?>"><i class="fa fa-circle-o"></i> AHP</a></li>
+                <li><a href="<?php echo base_url('perhitunganfahp'); ?>"><i class="fa fa-circle-o"></i> F-AHP</a></li>
+              </ul>
+            </li>
+
             <li>
               <a href="<?php echo base_url('alternative'); ?>">
                 <i class="fa fa-object-ungroup"></i> <span>Alternative</span></i>

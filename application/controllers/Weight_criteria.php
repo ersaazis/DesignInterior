@@ -23,7 +23,6 @@ class Weight_criteria extends BaseController
         {
             $data['weight'] = $this->weight_criteria_model->dataEdit();
             $data['criteria'] = $this->criteria_model->dataArray();
-            $this->load->model('criteria_model');            
             $this->global['pageTitle'] = 'CodeInsect : Weight Criteria';
             $this->loadViews("criteria/weight", $this->global, $data, NULL);
         }
@@ -40,8 +39,6 @@ class Weight_criteria extends BaseController
             $input = $this->input->post('input');
             foreach($input as $in)
                 $input[] = array(
-                    'log_name1' => $in['log_name1'],
-                    'log_name2' => $in['log_name2'],
                     'id_criteria1' => $in['id_criteria2'],
                     'id_criteria2' => $in['id_criteria1'],
                     'weight' => (float) (1/(int) $in['weight']),
@@ -52,8 +49,6 @@ class Weight_criteria extends BaseController
                 for($j=$i;$j<count($criteria);$j++){
                     if($i==$j)
                         $input[] = array(
-                            'log_name1' => $criteria[$i]['name'],
-                            'log_name2' => $criteria[$i]['name'],
                             'id_criteria1' => $criteria[$i]['id'],
                             'id_criteria2' => $criteria[$i]['id'],
                             'weight' => 1,

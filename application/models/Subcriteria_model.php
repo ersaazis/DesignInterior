@@ -20,7 +20,31 @@ class Subcriteria_model extends CI_Model
         
         return $query->num_rows();
     }
-    
+    function data()
+    {
+        $this->db->select('*');
+        $this->db->from('sub_criteria');
+        $query = $this->db->get();
+        $result = $query->result();        
+        return $result;
+    }
+    function dataArray()
+    {
+        $this->db->select('*');
+        $this->db->from('sub_criteria');
+        $query = $this->db->get();
+        $result = $query->result_array();        
+        return $result;
+    }    
+    function getDataArray($id_criteria)
+    {
+        $this->db->select('*');
+        $this->db->where('criteria_id',$id_criteria);
+        $this->db->from('sub_criteria');
+        $query = $this->db->get();
+        $result = $query->result_array();        
+        return $result;
+    }    
     /**
      * This function is used to get the subcriteria listing count
      * @param string $searchText : This is optional search text

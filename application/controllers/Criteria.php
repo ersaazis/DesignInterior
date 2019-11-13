@@ -38,7 +38,7 @@ class Criteria extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : Criteria Listing';
             
-            $this->loadViews("criteria", $this->global, $data, NULL);
+            $this->loadViews("criteria/criteria", $this->global, $data, NULL);
         }
     }
 
@@ -47,6 +47,7 @@ class Criteria extends BaseController
      */
     function addNew()
     {
+        $this->load->model('criteria_model');
         if($this->isTicketter() == FALSE)
         {
             $this->loadThis();
@@ -55,7 +56,13 @@ class Criteria extends BaseController
         {
             $this->load->model('criteria_model');            
             $this->global['pageTitle'] = 'CodeInsect : Add New Criteria';
-            $this->loadViews("criteriaAddNew", $this->global, NULL, NULL);
+            $this->loadViews("criteria/criteriaAddNew", $this->global, NULL, NULL);
+
+            if($this->criteria_model->criteriaListingCount() > 14){
+                $this->session->set_flashdata('error', 'Criteria reached limit');
+
+                redirect('criteria');
+            }
         }
     }
     
@@ -121,7 +128,7 @@ class Criteria extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : Edit Criteria';
             
-            $this->loadViews("criteriaEditOld", $this->global, $data, NULL);
+            $this->loadViews("criteria/criteriaEditOld", $this->global, $data, NULL);
         }
     }
     

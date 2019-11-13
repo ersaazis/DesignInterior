@@ -38,7 +38,7 @@ class Alternative extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : Alternative Listing';
             
-            $this->loadViews("alternative", $this->global, $data, NULL);
+            $this->loadViews("alternative/alternative", $this->global, $data, NULL);
         }
     }
 
@@ -55,7 +55,7 @@ class Alternative extends BaseController
         {
             $this->load->model('alternative_model');            
             $this->global['pageTitle'] = 'CodeInsect : Add New Alternative';
-            $this->loadViews("alternativeAddNew", $this->global, NULL, NULL);
+            $this->loadViews("alternative/alternativeAddNew", $this->global, NULL, NULL);
         }
     }
     
@@ -121,7 +121,7 @@ class Alternative extends BaseController
             
             $this->global['pageTitle'] = 'CodeInsect : Edit Alternative';
             
-            $this->loadViews("alternativeEditOld", $this->global, $data, NULL);
+            $this->loadViews("alternative/alternativeEditOld", $this->global, $data, NULL);
         }
     }
     
