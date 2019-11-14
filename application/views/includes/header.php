@@ -130,7 +130,7 @@
                 <li><a href="<?php echo base_url('Weight_subcriteria'); ?>"><i class="fa fa-circle-o"></i> Weight</a></li>
               </ul>
             </li>
-
+<!-- 
             <li class="treeview">
               <a href="#">
                 <i class="glyphicon glyphicon-certificate"></i> <span>Calculation</span>
@@ -142,11 +142,17 @@
                 <li><a href="<?php echo base_url('perhitunganahp'); ?>"><i class="fa fa-circle-o"></i> AHP</a></li>
                 <li><a href="<?php echo base_url('perhitunganfahp'); ?>"><i class="fa fa-circle-o"></i> F-AHP</a></li>
               </ul>
-            </li>
+            </li> -->
 
             <li>
               <a href="<?php echo base_url('alternative'); ?>">
                 <i class="fa fa-object-ungroup"></i> <span>Alternative</span></i>
+              </a>
+            </li>
+
+            <li>
+              <a href="<?php echo base_url('assessment'); ?>">
+                <i class="fa fa-star"></i> <span>Assessment</span></i>
               </a>
             </li>
             <!-- <li>

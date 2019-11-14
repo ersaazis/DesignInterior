@@ -19,7 +19,14 @@ class Alternative_model extends CI_Model
         
         return $query->num_rows();
     }
-    
+    function data()
+    {
+        $this->db->select('*');
+        $this->db->from('alternative');
+        $query = $this->db->get();
+        $result = $query->result();        
+        return $result;
+    }
     /**
      * This function is used to get the alternative listing count
      * @param string $searchText : This is optional search text

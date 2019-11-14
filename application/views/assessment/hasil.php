@@ -2,8 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-object-ungroup"></i> Alternative Management
-        <small>Add / Edit Alternative</small>
+        <i class="fa fa-object-ungroup"></i> Assessment
       </h1>
     </section>
     
@@ -14,38 +13,32 @@
             <div class="col-md-8">
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter Alternative Details</h3>
+                        <h3 class="box-title">Not yet in order</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addAlternative" action="<?php echo base_url('alternative/addNewAlternative') ?>" method="post" role="form">
+                    <form role="form" id="addAlternative" action="<?php echo base_url('assessment/calculate') ?>" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
-                                <div class="col-md-6">                                
-                                    <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('name'); ?>" id="name" name="name" maxlength="128">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Sub Criteria</label>
-                                        <select class="form-control" value="<?php echo set_value('id_subcriteria'); ?>" id="id_subcriteria" name="id_subcriteria">
-                                            <?php
-                                            foreach($subcriteria as $sc):
-                                                if($sc->criteria_id != $s_criteria)
-                                                    continue;
-                                            ?>
-                                            <option value="<?=$sc->id?>"><?=$sc->name?></option>
-                                            <?php
-                                            endforeach;
-                                            ?>
-                                        </select>
-                                    </div>
+                                <div class="col-md-6">
+                                    <table class="table">
+                                        <tr>
+                                            <th>Gaya Desain</th>
+                                            <th>Total Bobot</th>
+                                        </tr>
+                                    <?php
+                                        foreach($alternative as $al):
+                                    ?>
+                                        <tr>
+                                            <td><?=$al->name?></td>
+                                            <td><?=$totalBOBOT[$al->id_subcriteria]?></td>
+                                        </tr>
+                                    <?php
+                                        endforeach;
+                                    ?>
+                                    </table>
                                 </div>
                             </div>
-                        </div>
-                        <div class="box-footer">
-                            <input type="submit" class="btn btn-primary" value="Submit" />
-                            <input type="reset" class="btn btn-default" value="Reset" />
                         </div>
                     </form>
                 </div>

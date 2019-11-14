@@ -1,15 +1,8 @@
-<?php
-$id = $alternativeInfo->id;
-$name = $alternativeInfo->name;
-$id_subcriteria = $alternativeInfo->id_subcriteria;
-?>
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-object-ungroup"></i> Alternative Management
-        <small>Add / Edit Alternative</small>
+        <i class="fa fa-object-ungroup"></i> Assessment
       </h1>
     </section>
     
@@ -18,42 +11,40 @@ $id_subcriteria = $alternativeInfo->id_subcriteria;
         <div class="row">
             <!-- left column -->
             <div class="col-md-8">
-              <!-- general form elements -->
-                
-                
-                
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter Alternative Details</h3>
+                        <h3 class="box-title">Enter Assessment Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    
-                    <form role="form" action="<?php echo base_url('alternative/editAlternative') ?>" method="post" id="editAlternative" role="form">
+                    <?php $this->load->helper("form"); ?>
+                    <form role="form" id="addAlternative" action="<?php echo base_url('assessment/calculate') ?>" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
-                                <div class="col-md-6">                                
+                                <div class="col-md-6">
+                                    <?php
+                                        $num=0;
+                                        foreach($criteria as $c):
+                                    ?>
                                     <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Full Name" name="name" value="<?php echo $name; ?>" maxlength="128">
-                                        <input type="hidden" value="<?php echo $id; ?>" name="id" id="id" />    
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Sub Criteria</label>
-                                        <select class="form-control" id="id_subcriteria" name="id_subcriteria">
-                                            <?php
-                                            foreach($subcriteria as $sc):
-                                                if($sc->criteria_id != $s_criteria)
-                                                    continue;                                            ?>
-                                            <option <?php echo ($id_subcriteria == $sc->id)?"selected":""; ?> value="<?=$sc->id?>"><?=$sc->name?></option>
-                                            <?php
+                                        <label for="name"><?=$c['name']?></label>
+                                        <input type="hidden" class="form-control required" value="<?=$c['id']?>" id="name" name="input[<?=$num?>][id_criteria]" maxlength="128">
+                                        <select name="input[<?=$num?>][id_subcriteria]" class="form-control">
+                                        <?php
+                                            foreach($subcriteria[$c['id']] as $sc):
+                                        ?>
+                                            <option value="<?=$sc['id']?>"><?=$sc['name']?></option>
+                                        <?php
                                             endforeach;
-                                            ?>
+                                        ?>
                                         </select>
                                     </div>
+                                    <?php
+                                        $num++;
+                                        endforeach;
+                                    ?>
                                 </div>
                             </div>
-                        </div><!-- /.box-body -->
-    
+                        </div>
                         <div class="box-footer">
                             <input type="submit" class="btn btn-primary" value="Submit" />
                             <input type="reset" class="btn btn-default" value="Reset" />
@@ -83,7 +74,6 @@ $id_subcriteria = $alternativeInfo->id_subcriteria;
                     <?php echo $this->session->flashdata('success'); ?>
                 </div>
                 <?php } ?>
-                
                 <div class="row">
                     <div class="col-md-12">
                         <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', ' <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>'); ?>
@@ -93,5 +83,4 @@ $id_subcriteria = $alternativeInfo->id_subcriteria;
         </div>    
     </section>
 </div>
-
-<script src="<?php echo base_url(); ?>assets/js/editAlternative.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/js/addAlternative.js" type="text/javascript"></script>

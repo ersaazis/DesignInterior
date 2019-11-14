@@ -14,6 +14,23 @@ class Alternative extends BaseController
         $this->isLoggedIn();   
     }
     
+    function spesialcriteria()
+    {
+        if($this->isTicketter() == FALSE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+            $id_subcriteria = $this->input->post('id_subcriteria');
+            $data = array('value'=>$id_subcriteria);
+            $this->db->where('key','spesialcriteria');
+            $this->db->update('setting', $data);
+            $this->session->set_flashdata('success', 'New Alternative created successfully');
+            redirect('alternative');
+        }
+    }
+
     /**
      * This function is used to load the alternative list
      */
@@ -33,7 +50,10 @@ class Alternative extends BaseController
             $count = $this->alternative_model->alternativeListingCount($searchText);
 
 			$returns = $this->paginationCompress ( "alternative/", $count, 10 );
-            
+            $this->load->model('criteria_model');
+            $data['criteria'] = $this->criteria_model->dataArray();
+            $data['s_criteria'] = $this->db->select('value')->where('key', 'spesialcriteria')->get('setting')->row('value');
+
             $data['alternativeRecords'] = $this->alternative_model->alternativeListing($searchText, $returns["page"], $returns["segment"]);
             
             $this->global['pageTitle'] = 'CodeInsect : Alternative Listing';
@@ -53,9 +73,11 @@ class Alternative extends BaseController
         }
         else
         {
-            $this->load->model('alternative_model');            
+            $this->load->model('subcriteria_model');            
             $this->global['pageTitle'] = 'CodeInsect : Add New Alternative';
-            $this->loadViews("alternative/alternativeAddNew", $this->global, NULL, NULL);
+            $data['subcriteria'] = $this->subcriteria_model->data();
+            $data['s_criteria'] = $this->db->select('value')->where('key', 'spesialcriteria')->get('setting')->row('value');
+            $this->loadViews("alternative/alternativeAddNew", $this->global, $data, NULL);
         }
     }
     
@@ -80,8 +102,9 @@ class Alternative extends BaseController
             }
             else
             {
+                $id_subcriteria = $this->input->post('id_subcriteria');
                 $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
-                $alternativeInfo = array('name'=>$name);
+                $alternativeInfo = array('name'=>$name,'id_subcriteria'=>$id_subcriteria);
                 $this->load->model('alternative_model');
                 $result = $this->alternative_model->addNewAlternative($alternativeInfo);
                 
@@ -116,7 +139,10 @@ class Alternative extends BaseController
             {
                 redirect('alternative');
             }
-            
+            $this->load->model('subcriteria_model');            
+            $data['subcriteria'] = $this->subcriteria_model->data();
+            $data['s_criteria'] = $this->db->select('value')->where('key', 'spesialcriteria')->get('setting')->row('value');
+
             $data['alternativeInfo'] = $this->alternative_model->getAlternativeInfo($alternativeId);
             
             $this->global['pageTitle'] = 'CodeInsect : Edit Alternative';
@@ -149,8 +175,10 @@ class Alternative extends BaseController
             }
             else
             {
+                $id_subcriteria = $this->input->post('id_subcriteria');
                 $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
-                $alternativeInfo = array('name' => $name);
+                $alternativeInfo = array('name'=>$name,'id_subcriteria'=>$id_subcriteria);
+
                 $result = $this->alternative_model->editAlternative($alternativeInfo, $alternativeId);                
                 if($result == true)
                 {

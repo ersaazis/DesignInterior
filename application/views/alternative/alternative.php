@@ -36,7 +36,23 @@
                 <?php echo $this->session->flashdata('success'); ?>
             </div>
             <?php } ?>
-              <div class="box">
+
+            <form method="POST" action="<?php echo base_url('alternative/spesialcriteria') ?>">
+                <label for="name">Spesial Criteria</label>
+                <select name="id_subcriteria" class="form-control">
+                <?php
+                    foreach($criteria as $c):
+                ?>
+                    <option <?php echo ($s_criteria == $c['id'])?"selected":""; ?> value="<?=$c['id']?>"><?=$c['name']?></option>
+                <?php
+                    endforeach;
+                ?>
+
+                </select>
+                <br>
+                <input type="submit" class="btn btn-sm btn-primary">
+                </form>
+            <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Alternative List</h3>
                     <div class="box-tools">

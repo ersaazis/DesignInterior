@@ -1,11 +1,11 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Criteria_ahp_model extends CI_Model
+class normalize_weight_subcriteria_model extends CI_Model
 {
     function data()
     {
         $this->db->select('*');
-        $this->db->from('criteria_ahp');
+        $this->db->from('normalize_weight_subcriteria');
         $query = $this->db->get();
         $result = $query->result();        
         return $result;
@@ -13,27 +13,19 @@ class Criteria_ahp_model extends CI_Model
     function dataArray()
     {
         $this->db->select('*');
-        $this->db->from('criteria_ahp');
+        $this->db->from('normalize_weight_subcriteria');
         $query = $this->db->get();
         $result = $query->result_array();        
         return $result;
     }
-    function getScoreAHP($id)
-    {
-        $this->db->select('*');
-        $this->db->from('criteria_ahp');
-        $this->db->where('id_criteria',$id);
-        $query = $this->db->get();
-        $result = $query->row();        
-        return $result;
-    }
     function updateOrInsert($data)
     {
-        $this->db->empty_table('criteria_ahp');
+        $this->db->empty_table('normalize_weight_subcriteria');
         // print_r($data);
         $this->db->trans_start();
-        foreach($data as $d)
-            $this->db->insert('criteria_ahp', $d);
+        foreach($data as $da)
+            foreach($da as $d)
+                $this->db->insert('normalize_weight_subcriteria', $d);
         $insert_id = $this->db->insert_id();
         $this->db->trans_complete();
         
