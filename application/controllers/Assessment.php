@@ -43,10 +43,16 @@ class Assessment extends BaseController
         else
         {
             $this->global['pageTitle'] = 'CodeInsect : Assessment';
+            
             $this->load->model('Criteria_ahp_model');
             $this->load->model('Subcriteria_ahp_model');
+
+            $this->load->model('Criteria_fahp_model');
+            $this->load->model('Subcriteria_fahp_model');
+
             $this->load->model('Subcriteria_model');
             $this->load->model('Alternative_model');
+            /////////////// calculate AHP
             $criteriaAHP=$this->Criteria_ahp_model->data();
             $subcriteriaAHP=$this->Subcriteria_ahp_model->data();
             $AHPc=array();
@@ -68,13 +74,44 @@ class Assessment extends BaseController
             }
 
             $subcriteria=$this->Subcriteria_model->dataArray();
-            $totalBOBOT=array();
+            $totalBOBOT_AHP=array();
             foreach($subcriteria as $sub){
                 if($sub['criteria_id'] != $s_criteria)
                     continue;
-                $totalBOBOT[$sub['id']]=$point+($AHPc[$s_criteria]*$AHPsubc[$sub['id']]);
+                $totalBOBOT_AHP[$sub['id']]=$point+($AHPc[$s_criteria]*$AHPsubc[$sub['id']]);
             }
-            $data['totalBOBOT'] = $totalBOBOT;
+
+            /////////////////// calculate FAHP
+            $criteriafAHP=$this->Criteria_fahp_model->data();
+            $subcriteriafAHP=$this->Subcriteria_fahp_model->data();
+            $fAHPc=array();
+            foreach($criteriafAHP as $cfahp){
+                $fAHPc[$cfahp->id_criteria]=$cfahp->score;
+            }
+            $fAHPsubc=array();
+            foreach($subcriteriafAHP as $sfahp){
+                $fAHPsubc[$sfahp->id_subcriteria]=$sfahp->score;
+            }
+            $inputs = $this->input->post('input');
+            $input=array();
+            $s_criteria = $this->db->select('value')->where('key', 'spesialcriteria')->get('setting')->row('value');
+            $point=0;
+            foreach($inputs as $in){
+                if($in['id_criteria'] == $s_criteria)
+                    continue;
+                    $point+=$fAHPc[$in['id_criteria']] * $fAHPsubc[$in['id_subcriteria']];
+            }
+
+            $subcriteria=$this->Subcriteria_model->dataArray();
+            $totalBOBOT_fAHP=array();
+            foreach($subcriteria as $sub){
+                if($sub['criteria_id'] != $s_criteria)
+                    continue;
+                $totalBOBOT_fAHP[$sub['id']]=$point+($AHPc[$s_criteria]*$AHPsubc[$sub['id']]);
+            }
+
+            $data['totalBOBOT_AHP'] = $totalBOBOT_AHP;
+            $data['totalBOBOT_FAHP'] = $totalBOBOT_fAHP;
             $data['alternative'] = $this->Alternative_model->data();
             $this->loadViews("assessment/hasil", $this->global, $data, NULL);
         }

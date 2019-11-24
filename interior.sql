@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2019 at 08:37 PM
+-- Generation Time: Nov 24, 2019 at 10:06 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -98,10 +98,32 @@ CREATE TABLE `criteria_ahp` (
 --
 
 INSERT INTO `criteria_ahp` (`id`, `id_criteria`, `score`) VALUES
-(4, 25, 0.255624),
-(5, 27, 0.576397),
-(6, 28, 0.11724),
-(7, 26, 0.0507388);
+(1, 25, 0.255624),
+(2, 27, 0.576397),
+(3, 28, 0.11724),
+(4, 26, 0.0507388);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `criteria_fahp`
+--
+
+CREATE TABLE `criteria_fahp` (
+  `id` int(11) NOT NULL,
+  `id_criteria` int(11) NOT NULL,
+  `score` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `criteria_fahp`
+--
+
+INSERT INTO `criteria_fahp` (`id`, `id_criteria`, `score`) VALUES
+(1, 25, 0.258998),
+(2, 26, 0.0513357),
+(3, 27, 0.573026),
+(4, 28, 0.11664);
 
 -- --------------------------------------------------------
 
@@ -121,22 +143,22 @@ CREATE TABLE `normalize_weight_criteria` (
 --
 
 INSERT INTO `normalize_weight_criteria` (`id`, `id_criteria1`, `id_criteria2`, `weight`) VALUES
-(46, 25, 26, 0.277778),
-(47, 27, 25, 0.661765),
-(48, 25, 28, 0.321429),
-(49, 27, 26, 0.5),
-(50, 28, 26, 0.166667),
-(51, 27, 28, 0.535714),
-(52, 26, 25, 0.0441176),
-(53, 25, 27, 0.202703),
-(54, 28, 25, 0.0735294),
-(55, 26, 27, 0.0675676),
-(56, 26, 28, 0.0357143),
-(57, 28, 27, 0.121622),
-(58, 25, 25, 0.220588),
-(59, 26, 26, 0.0555556),
-(60, 27, 27, 0.608108),
-(61, 28, 28, 0.107143);
+(708, 25, 26, 0.277778),
+(709, 27, 25, 0.661765),
+(710, 25, 28, 0.321429),
+(711, 27, 26, 0.5),
+(712, 28, 26, 0.166667),
+(713, 27, 28, 0.535714),
+(714, 26, 25, 0.0441176),
+(715, 25, 27, 0.202703),
+(716, 28, 25, 0.0735294),
+(717, 26, 27, 0.0675676),
+(718, 26, 28, 0.0357143),
+(719, 28, 27, 0.121622),
+(720, 25, 25, 0.220588),
+(721, 26, 26, 0.0555556),
+(722, 27, 27, 0.608108),
+(723, 28, 28, 0.107143);
 
 -- --------------------------------------------------------
 
@@ -157,44 +179,44 @@ CREATE TABLE `normalize_weight_subcriteria` (
 --
 
 INSERT INTO `normalize_weight_subcriteria` (`id`, `id_criteria`, `id_subcriteria1`, `id_subcriteria2`, `weight`) VALUES
-(293, 25, 38, 39, 0.6),
-(294, 25, 38, 40, 0.555556),
-(295, 25, 39, 40, 0.333333),
-(296, 25, 39, 38, 0.294118),
-(297, 25, 40, 38, 0.117647),
-(298, 25, 40, 39, 0.1),
-(299, 25, 38, 38, 0.588235),
-(300, 25, 39, 39, 0.3),
-(301, 25, 40, 40, 0.111111),
-(302, 26, 42, 41, 0.75),
-(303, 26, 41, 42, 0.25),
-(304, 26, 41, 41, 0.25),
-(305, 26, 42, 42, 0.75),
-(306, 27, 43, 44, 0.6),
-(307, 27, 43, 45, 0.555556),
-(308, 27, 44, 45, 0.333333),
-(309, 27, 44, 43, 0.294118),
-(310, 27, 45, 43, 0.117647),
-(311, 27, 45, 44, 0.1),
-(312, 27, 43, 43, 0.588235),
-(313, 27, 44, 44, 0.3),
-(314, 27, 45, 45, 0.111111),
-(315, 28, 47, 46, 0.4375),
-(316, 28, 48, 46, 0.3125),
-(317, 28, 49, 46, 0.1875),
-(318, 28, 47, 48, 0.661765),
-(319, 28, 47, 49, 0.535714),
-(320, 28, 48, 49, 0.321429),
-(321, 28, 46, 47, 0.0852273),
-(322, 28, 46, 48, 0.0441176),
-(323, 28, 46, 49, 0.0357143),
-(324, 28, 48, 47, 0.198864),
-(325, 28, 49, 47, 0.119318),
-(326, 28, 49, 48, 0.0735294),
-(327, 28, 46, 46, 0.0625),
-(328, 28, 47, 47, 0.596591),
-(329, 28, 48, 48, 0.220588),
-(330, 28, 49, 49, 0.107143);
+(3361, 25, 38, 39, 0.6),
+(3362, 25, 38, 40, 0.555556),
+(3363, 25, 39, 40, 0.333333),
+(3364, 25, 39, 38, 0.294118),
+(3365, 25, 40, 38, 0.117647),
+(3366, 25, 40, 39, 0.1),
+(3367, 25, 38, 38, 0.588235),
+(3368, 25, 39, 39, 0.3),
+(3369, 25, 40, 40, 0.111111),
+(3370, 26, 42, 41, 0.75),
+(3371, 26, 41, 42, 0.25),
+(3372, 26, 41, 41, 0.25),
+(3373, 26, 42, 42, 0.75),
+(3374, 27, 43, 44, 0.6),
+(3375, 27, 43, 45, 0.555556),
+(3376, 27, 44, 45, 0.333333),
+(3377, 27, 44, 43, 0.294118),
+(3378, 27, 45, 43, 0.117647),
+(3379, 27, 45, 44, 0.1),
+(3380, 27, 43, 43, 0.588235),
+(3381, 27, 44, 44, 0.3),
+(3382, 27, 45, 45, 0.111111),
+(3383, 28, 47, 46, 0.4375),
+(3384, 28, 48, 46, 0.3125),
+(3385, 28, 49, 46, 0.1875),
+(3386, 28, 47, 48, 0.661765),
+(3387, 28, 47, 49, 0.535714),
+(3388, 28, 48, 49, 0.321429),
+(3389, 28, 46, 47, 0.0852273),
+(3390, 28, 46, 48, 0.0441176),
+(3391, 28, 46, 49, 0.0357143),
+(3392, 28, 48, 47, 0.198864),
+(3393, 28, 49, 47, 0.119318),
+(3394, 28, 49, 48, 0.0735294),
+(3395, 28, 46, 46, 0.0625),
+(3396, 28, 47, 47, 0.596591),
+(3397, 28, 48, 48, 0.220588),
+(3398, 28, 49, 49, 0.107143);
 
 -- --------------------------------------------------------
 
@@ -212,7 +234,15 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`key`, `value`) VALUES
-('spesialcriteria', '28');
+('memUsageAhp', '2250256'),
+('memUsageFahp', '2263920'),
+('SmemUsageAhp', '2324736'),
+('SmemUsageFahp', '2368352'),
+('spesialcriteria', '28'),
+('SwaktuAHP', '0.000065088272094727'),
+('SwaktuFAHP', '0.00036382675170898'),
+('waktuAHP', '0.000017166137695312'),
+('waktuFAHP', '0.00024104118347168');
 
 -- --------------------------------------------------------
 
@@ -232,18 +262,49 @@ CREATE TABLE `subcriteria_ahp` (
 --
 
 INSERT INTO `subcriteria_ahp` (`id`, `id_criteria`, `id_subcriteria`, `score`) VALUES
-(34, 25, 38, 0.581264),
-(35, 25, 39, 0.30915),
-(36, 25, 40, 0.109586),
-(37, 26, 42, 0.75),
-(38, 26, 41, 0.25),
-(39, 27, 43, 0.581264),
-(40, 27, 44, 0.30915),
-(41, 27, 45, 0.109586),
-(42, 28, 47, 0.557893),
-(43, 28, 48, 0.263345),
-(44, 28, 49, 0.121873),
-(45, 28, 46, 0.0568898);
+(1, 25, 38, 0.581264),
+(2, 25, 39, 0.30915),
+(3, 25, 40, 0.109586),
+(4, 26, 42, 0.75),
+(5, 26, 41, 0.25),
+(6, 27, 43, 0.581264),
+(7, 27, 44, 0.30915),
+(8, 27, 45, 0.109586),
+(9, 28, 47, 0.557893),
+(10, 28, 48, 0.263345),
+(11, 28, 49, 0.121873),
+(12, 28, 46, 0.0568898);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subcriteria_fahp`
+--
+
+CREATE TABLE `subcriteria_fahp` (
+  `id` int(11) NOT NULL,
+  `id_criteria` int(11) NOT NULL,
+  `id_subcriteria` int(11) NOT NULL,
+  `score` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `subcriteria_fahp`
+--
+
+INSERT INTO `subcriteria_fahp` (`id`, `id_criteria`, `id_subcriteria`, `score`) VALUES
+(1, 25, 39, 0.323816),
+(2, 25, 38, 0.565844),
+(3, 25, 40, 0.110341),
+(4, 26, 41, 0.257614),
+(5, 26, 42, 0.742386),
+(6, 27, 44, 0.323816),
+(7, 27, 43, 0.565844),
+(8, 27, 45, 0.110341),
+(9, 28, 46, 0.056056),
+(10, 28, 47, 0.557076),
+(11, 28, 48, 0.266739),
+(12, 28, 49, 0.120129);
 
 -- --------------------------------------------------------
 
@@ -312,7 +373,9 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (17, 9, '{\"role\":\"2\",\"roleText\":\"Admin\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.97', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36', 'Windows 10', '2019-11-13 17:41:29'),
 (18, 9, '{\"role\":\"2\",\"roleText\":\"Admin\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.97', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36', 'Windows 10', '2019-11-13 22:41:17'),
 (19, 9, '{\"role\":\"2\",\"roleText\":\"Admin\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.97', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36', 'Windows 10', '2019-11-14 08:03:49'),
-(20, 9, '{\"role\":\"2\",\"roleText\":\"Admin\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.97', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36', 'Windows 10', '2019-11-14 22:08:58');
+(20, 9, '{\"role\":\"2\",\"roleText\":\"Admin\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.97', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36', 'Windows 10', '2019-11-14 22:08:58'),
+(21, 9, '{\"role\":\"2\",\"roleText\":\"Admin\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 10', '2019-11-25 00:05:52'),
+(22, 9, '{\"role\":\"2\",\"roleText\":\"Admin\",\"name\":\"Admin\"}', '::1', 'Chrome 78.0.3904.108', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'Windows 10', '2019-11-25 03:21:52');
 
 -- --------------------------------------------------------
 
@@ -399,22 +462,22 @@ CREATE TABLE `weight_criteria` (
 --
 
 INSERT INTO `weight_criteria` (`id`, `id_criteria1`, `id_criteria2`, `weight`, `input`) VALUES
-(109, 25, 26, 5, 1),
-(110, 27, 25, 3, 1),
-(111, 25, 28, 3, 1),
-(112, 27, 26, 9, 1),
-(113, 28, 26, 3, 1),
-(114, 27, 28, 5, 1),
-(115, 26, 25, 0.2, 0),
-(116, 25, 27, 0.333333, 0),
-(117, 28, 25, 0.333333, 0),
-(118, 26, 27, 0.111111, 0),
-(119, 26, 28, 0.333333, 0),
-(120, 28, 27, 0.2, 0),
-(121, 25, 25, 1, 0),
-(122, 26, 26, 1, 0),
-(123, 27, 27, 1, 0),
-(124, 28, 28, 1, 0);
+(141, 25, 26, 5, 1),
+(142, 27, 25, 3, 1),
+(143, 25, 28, 3, 1),
+(144, 27, 26, 9, 1),
+(145, 28, 26, 3, 1),
+(146, 27, 28, 5, 1),
+(147, 26, 25, 0.2, 0),
+(148, 25, 27, 0.333333, 0),
+(149, 28, 25, 0.333333, 0),
+(150, 26, 27, 0.111111, 0),
+(151, 26, 28, 0.333333, 0),
+(152, 28, 27, 0.2, 0),
+(153, 25, 25, 1, 0),
+(154, 26, 26, 1, 0),
+(155, 27, 27, 1, 0),
+(156, 28, 28, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -436,44 +499,44 @@ CREATE TABLE `weight_subcriteria` (
 --
 
 INSERT INTO `weight_subcriteria` (`id`, `id_criteria`, `id_subcriteria1`, `id_subcriteria2`, `weight`, `input`) VALUES
-(569, 25, 38, 39, 2, 1),
-(570, 25, 38, 40, 5, 1),
-(571, 25, 39, 40, 3, 1),
-(572, 26, 42, 41, 3, 1),
-(573, 27, 43, 44, 2, 1),
-(574, 27, 43, 45, 5, 1),
-(575, 27, 44, 45, 3, 1),
-(576, 28, 47, 46, 7, 1),
-(577, 28, 48, 46, 5, 1),
-(578, 28, 49, 46, 3, 1),
-(579, 28, 47, 48, 3, 1),
-(580, 28, 47, 49, 5, 1),
-(581, 28, 48, 49, 3, 1),
-(582, 25, 39, 38, 0.5, 0),
-(583, 25, 40, 38, 0.2, 0),
-(584, 25, 40, 39, 0.333333, 0),
-(585, 26, 41, 42, 0.333333, 0),
-(586, 27, 44, 43, 0.5, 0),
-(587, 27, 45, 43, 0.2, 0),
-(588, 27, 45, 44, 0.333333, 0),
-(589, 28, 46, 47, 0.142857, 0),
-(590, 28, 46, 48, 0.2, 0),
-(591, 28, 46, 49, 0.333333, 0),
-(592, 28, 48, 47, 0.333333, 0),
-(593, 28, 49, 47, 0.2, 0),
-(594, 28, 49, 48, 0.333333, 0),
-(595, 25, 38, 38, 1, 0),
-(596, 25, 39, 39, 1, 0),
-(597, 25, 40, 40, 1, 0),
-(598, 26, 41, 41, 1, 0),
-(599, 26, 42, 42, 1, 0),
-(600, 27, 43, 43, 1, 0),
-(601, 27, 44, 44, 1, 0),
-(602, 27, 45, 45, 1, 0),
-(603, 28, 46, 46, 1, 0),
-(604, 28, 47, 47, 1, 0),
-(605, 28, 48, 48, 1, 0),
-(606, 28, 49, 49, 1, 0);
+(759, 25, 38, 39, 2, 1),
+(760, 25, 38, 40, 5, 1),
+(761, 25, 39, 40, 3, 1),
+(762, 26, 42, 41, 3, 1),
+(763, 27, 43, 44, 2, 1),
+(764, 27, 43, 45, 5, 1),
+(765, 27, 44, 45, 3, 1),
+(766, 28, 47, 46, 7, 1),
+(767, 28, 48, 46, 5, 1),
+(768, 28, 49, 46, 3, 1),
+(769, 28, 47, 48, 3, 1),
+(770, 28, 47, 49, 5, 1),
+(771, 28, 48, 49, 3, 1),
+(772, 25, 39, 38, 0.5, 0),
+(773, 25, 40, 38, 0.2, 0),
+(774, 25, 40, 39, 0.333333, 0),
+(775, 26, 41, 42, 0.333333, 0),
+(776, 27, 44, 43, 0.5, 0),
+(777, 27, 45, 43, 0.2, 0),
+(778, 27, 45, 44, 0.333333, 0),
+(779, 28, 46, 47, 0.142857, 0),
+(780, 28, 46, 48, 0.2, 0),
+(781, 28, 46, 49, 0.333333, 0),
+(782, 28, 48, 47, 0.333333, 0),
+(783, 28, 49, 47, 0.2, 0),
+(784, 28, 49, 48, 0.333333, 0),
+(785, 25, 38, 38, 1, 0),
+(786, 25, 39, 39, 1, 0),
+(787, 25, 40, 40, 1, 0),
+(788, 26, 41, 41, 1, 0),
+(789, 26, 42, 42, 1, 0),
+(790, 27, 43, 43, 1, 0),
+(791, 27, 44, 44, 1, 0),
+(792, 27, 45, 45, 1, 0),
+(793, 28, 46, 46, 1, 0),
+(794, 28, 47, 47, 1, 0),
+(795, 28, 48, 48, 1, 0),
+(796, 28, 49, 49, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -506,6 +569,12 @@ ALTER TABLE `criteria_ahp`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `criteria_fahp`
+--
+ALTER TABLE `criteria_fahp`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `normalize_weight_criteria`
 --
 ALTER TABLE `normalize_weight_criteria`
@@ -527,6 +596,12 @@ ALTER TABLE `setting`
 -- Indexes for table `subcriteria_ahp`
 --
 ALTER TABLE `subcriteria_ahp`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subcriteria_fahp`
+--
+ALTER TABLE `subcriteria_fahp`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -592,25 +667,37 @@ ALTER TABLE `criteria`
 -- AUTO_INCREMENT for table `criteria_ahp`
 --
 ALTER TABLE `criteria_ahp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `criteria_fahp`
+--
+ALTER TABLE `criteria_fahp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `normalize_weight_criteria`
 --
 ALTER TABLE `normalize_weight_criteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=724;
 
 --
 -- AUTO_INCREMENT for table `normalize_weight_subcriteria`
 --
 ALTER TABLE `normalize_weight_subcriteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=331;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3399;
 
 --
 -- AUTO_INCREMENT for table `subcriteria_ahp`
 --
 ALTER TABLE `subcriteria_ahp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `subcriteria_fahp`
+--
+ALTER TABLE `subcriteria_fahp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `sub_criteria`
@@ -622,7 +709,7 @@ ALTER TABLE `sub_criteria`
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tbl_reset_password`
@@ -646,13 +733,13 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `weight_criteria`
 --
 ALTER TABLE `weight_criteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `weight_subcriteria`
 --
 ALTER TABLE `weight_subcriteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=607;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=797;
 
 --
 -- Constraints for dumped tables
