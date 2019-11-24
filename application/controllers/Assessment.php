@@ -110,6 +110,18 @@ class Assessment extends BaseController
                 $totalBOBOT_fAHP[$sub['id']]=$point+($AHPc[$s_criteria]*$AHPsubc[$sub['id']]);
             }
 
+            $data['memUsageAhp'] = $this->db->select('value')->where('key', 'memUsageAhp')->get('setting')->row('value');
+            $data['memUsageAhp'] += $this->db->select('value')->where('key', 'SmemUsageAhp')->get('setting')->row('value');
+
+            $data['memUsageFahp'] = $this->db->select('value')->where('key', 'memUsageFahp')->get('setting')->row('value');
+            $data['memUsageFahp'] += $this->db->select('value')->where('key', 'SmemUsageFahp')->get('setting')->row('value');
+
+            $data['waktuAHP'] = $this->db->select('value')->where('key', 'waktuAHP')->get('setting')->row('value');
+            $data['waktuAHP'] += $this->db->select('value')->where('key', 'SwaktuAHP')->get('setting')->row('value');
+
+            $data['waktuFAHP'] = $this->db->select('value')->where('key', 'waktuFAHP')->get('setting')->row('value');
+            $data['waktuFAHP'] += $this->db->select('value')->where('key', 'SwaktuFAHP')->get('setting')->row('value');
+
             $data['totalBOBOT_AHP'] = $totalBOBOT_AHP;
             $data['totalBOBOT_FAHP'] = $totalBOBOT_fAHP;
             $data['alternative'] = $this->Alternative_model->data();

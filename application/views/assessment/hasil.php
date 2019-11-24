@@ -38,6 +38,10 @@
                                     ?>
                                     </table>
                                 </div>
+                                <div class="col-md-6">
+                                    <b>Memory Usage</b> : <?=$memUsageAhp?><br>
+                                    <b>Time Process</b> : <?=number_format($waktuAHP,10)?> ms<br>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -70,6 +74,10 @@
                                         endforeach;
                                     ?>
                                     </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <b>Memory Usage</b> : <?=$memUsageFahp?><br>
+                                    <b>Time Process</b> : <?=number_format($waktuFAHP,10)?> ms<br>
                                 </div>
                             </div>
                         </div>
