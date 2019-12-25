@@ -161,7 +161,7 @@ class Weight_criteria extends BaseController
                 6 => array(1/7,1/6,1/5),
                 7 => array(1/8,1/7,1/6),
                 8 => array(1/9,1/8,1/7),
-                9 => array(1/9,1/9,1/8),
+                9 => array(1/9,1/9,1/9),
             );
             $inputFahp=array();
             foreach($inputXXX as $in){

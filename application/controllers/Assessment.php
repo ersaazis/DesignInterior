@@ -100,16 +100,20 @@ class Assessment extends BaseController
                 if($in['id_criteria'] == $s_criteria)
                     continue;
                     $point+=$fAHPc[$in['id_criteria']] * $fAHPsubc[$in['id_subcriteria']];
-            }
+                    // print_r($fAHPc[$in['id_criteria']] * $fAHPsubc[$in['id_subcriteria']]." | ");
 
+            }
+            // print_r($point);
             $subcriteria=$this->Subcriteria_model->dataArray();
             $totalBOBOT_fAHP=array();
             foreach($subcriteria as $sub){
                 if($sub['criteria_id'] != $s_criteria)
                     continue;
-                $totalBOBOT_fAHP[$sub['id']]=$point+($AHPc[$s_criteria]*$AHPsubc[$sub['id']]);
-            }
+                $totalBOBOT_fAHP[$sub['id']]=$point+($fAHPc[$s_criteria]*$fAHPsubc[$sub['id']]);
+                // print_r(($fAHPc[$s_criteria]*$fAHPsubc[$sub['id']])." | ");
 
+            }
+            // print_r($totalBOBOT_fAHP);
             $data['memUsageAhp'] = $this->db->select('value')->where('key', 'memUsageAhp')->get('setting')->row('value');
             $data['memUsageAhp'] += $this->db->select('value')->where('key', 'SmemUsageAhp')->get('setting')->row('value');
 
